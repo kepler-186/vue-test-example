@@ -1,0 +1,25 @@
+.widget-is-edit {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  margin: 5px 0;
+  letter-spacing: 0.7px;
+  padding: 0 12px 0 10px;
+  height: 45px;
+  background: #eeeeee;
+  cursor: move;
+}
+
+.widget-is-edit__delete {
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.widget-is-edit__text {
+  margin-left: 12px;
+}
+
+.widget-is-edit_loading {
+  height: 45px;
+  animation: pulse-bg 1s infinite;
+}

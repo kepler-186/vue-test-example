@@ -1,0 +1,92 @@
+.widgets {
+  max-width: 350px;
+  color: #2c3e50;
+}
+
+.widgets * {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+.widgets *:focus {
+  outline: none;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: 1px solid lighten(gray, 24%);
+  height: 32px;
+  width: 32px;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.btn-delete {
+  color: red;
+  background: url('./image/delete-icon.svg') 50% 50%/15px auto no-repeat;
+  margin-left: auto;
+
+  &:hover {
+    border-color: transparent;
+    background-color: lighten(red, 48%);
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 4px lighten(red, 40%);
+  }
+}
+
+.btn-base {
+  display: flex;
+  align-items: center;
+  background: #eb6e4b 10px 50%;
+  padding: 5px 15px 4px 8px;
+  border: none;
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color .3s linear;
+}
+
+.btn-base:hover {
+  background-color: #f38466;
+}
+
+.btn-base:active {
+  background-color: #d55835;
+}
+
+.btn-base__text {
+  margin-left: 6px;
+  margin-bottom: -1px;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.move-icon {
+  fill:none;
+  stroke:#2c3e50;
+  stroke-miterlimit:10;
+  stroke-width:1.91px;
+}
+
+.error-message {
+  text-align: center;
+  margin: 10px 0;
+  width: 100%;
+  padding: 10px;
+  letter-spacing: 0.4px;
+  border-radius: 5px;
+  color: red;
+  background-color: lighten(red, 48%);
+  box-shadow: 0 0 0 1px lighten(red, 40%);
+}

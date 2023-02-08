@@ -1,0 +1,143 @@
+.widget {
+  max-width: 350px;
+  margin-top: 15px;
+  padding: 20px;
+  border: 1px solid #eee;
+  &__title {
+    font-size: 25px;
+    font-weight: 700;
+  }
+}
+
+.widget__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.widget__line {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.widget__text {
+  display: flex;
+  align-items: flex-end;
+  flex: none;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  line-height: 18px;
+}
+
+.widget__text span {
+  padding: 0 15px 0 5px;
+}
+
+.widget__text-bg {
+  font-size: 36px;
+  font-weight: 100;
+  margin-right: 8pt;
+}
+
+.widget__date {
+  color: #eb6e4b;
+  font-size: 14px;
+}
+
+.widget__accent {
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.widget__accent p {
+  display: inline-block;
+  margin: 0;
+  padding: 0 0 0 15px;
+}
+
+.widget__accent p::first-letter {
+  text-transform: capitalize;
+}
+
+.widget_is-loading {
+  margin-top: 45px;
+  height: 267px;
+  max-width: 350xp;
+  box-sizing: border-box;
+}
+
+.widget_is-loading * {
+  animation: pulse-bg 1s infinite;
+}
+
+.widget_is-loading .widget__date {
+  width: 40%;
+  height: 16px;
+  margin-bottom: 5px;
+}
+
+.widget_is-loading .widget__title {
+  width: 60%;
+  height: 30px;
+  margin-bottom: 5px;
+}
+
+.widget_is-loading .widget__header {
+  width: 100%;
+  height: 85px;
+  margin-bottom: 5px;
+}
+
+.widget_is-loading  .widget__accent {
+  width: 70%;
+  height: 23px;
+}
+
+.widget_is-loading .widget__line {
+  width: 50%;
+  height: 18px;
+}
+
+.widget_is-loading .widget__line:last-child {
+  width: 70%;
+}
+
+//.wind-icon {
+//  display: inline-block;
+//  vertical-align: middle;
+//  width: 16px;
+//  margin-right: 5px;
+//  height: 16px;
+//  background: url('./image/wind-icon.svg') 50% 50%/cover no-repeat;
+//}
+//
+//.pressure-icon {
+//  display: inline-block;
+//  vertical-align: -2px;
+//  margin: 0 5px 0 20px;
+//  width: 16px;
+//  height: 16px;
+//  background: url('./image/pressure-icon.svg') 50% 50%/cover no-repeat;
+//}
+//
+//.humidity-icon {
+//  display: inline-block;
+//  vertical-align: middle;
+//  width: 16px;
+//  margin-right: 5px;
+//  height: 16px;
+//  background: url('./image/drops-icon.svg') 50% 50%/cover no-repeat;
+//}
+
+@keyframes pulse-bg {
+  0% {
+    background-color: #eee;
+  }
+  50% {
+    background-color: #eaeaea;
+  }
+  100% {
+    background-color: #eee;
+  }
+}

@@ -1,4 +1,5 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import WidgetView from './components/WidgetView.ce.vue';
+import {defineCustomElement} from "vue";
+const element = defineCustomElement(WidgetView);
 
-createApp(App).mount('#app')
+customElements.define("example-widget", element);

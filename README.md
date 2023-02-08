@@ -1,4 +1,15 @@
 # vue-widget-example
+
+Technologies </br>
+Vue.js, Typescript/ES7 and Babel, SCSS, Webpack.<br>
+
+<br>
+You can add this widget to their websites as simple as inserting the snippet into an HTML-page:</br>
+
+<weather-widget />
+<script type="text/javascript" src="{URL to the app}"></script>
+
+
 ## Project setup
 ```
 npm install

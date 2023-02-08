@@ -6,7 +6,7 @@ Vue.js, Typescript/ES7 and Babel, SCSS, Webpack.<br>
 <br>
 You can add this widget to their websites as simple as inserting the snippet into an HTML-page:</br>
 ```
-<weather-widget> as web-component
+<weather-widget as web-component<br>
 ```
 <script type="text/javascript" src="{URL to the app}"></script>
 

@@ -1,6 +1,6 @@
 <template>
-  <div class="widgets" @drop="onDrop($event)" @dragover.prevent @dragenter.prevent @dragstart="onDragStart($event)">
-      <button @click="toggleEditMode()" class="btn-base btn-base_edit">
+  <div class="widgets" @drop.prevent="onDrop" @dragover.prevent @dragenter.prevent @dragstart="onDragStart">
+      <button @click="toggleEditMode" class="btn-base btn-base_edit">
       <WidgetIcon :name="`editIcon`"/><span class="btn-base__text">Edit</span>
     </button>
     <div class="widgets__item" v-for="(widget,index) in widgetData" :key="`${ index }_${ new Date().getTime()}`">
@@ -11,71 +11,48 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import Widget from '@/types/widget'
-import { defineComponent } from 'vue'
+import { ref, onMounted } from 'vue'
 import WidgetCardIsEdit from '@/components/weatherWidget/widgetItem/WidgetCardIsEdit.vue'
 import WidgetCard from '@/components/weatherWidget/widgetItem/WidgetCard.vue'
 import WidgetIcon from '@/components/weatherWidget/WidgetIcon.vue'
 import WidgetAddForm from '@/components/weatherWidget/WidgetAddForm.vue'
 import { getWidgetData } from '@/api/widget'
 
-export default defineComponent({
-  name: 'WidgetContainer',
-  components: {
-    WidgetCardIsEdit,
-    WidgetCard,
-    WidgetAddForm,
-    WidgetIcon
-  },
+const editMode = ref(false)
+const draggableElementId = ref(-1)
+const widgetData = ref<Widget[]>([])
 
-  data() {
-    return {
-      editMode: false,
-      draggableElementId: -1,
-      widgetData: [ ] as Widget[] 
-    }
-  },
+onMounted(async() => {
+  const defaultCity = 'Vorkuta';
+  await getWidgetData(defaultCity, addWidget)
+})
 
-  methods: {
-   toggleEditMode(): void {
-    this.editMode = !this.editMode
-   },
+const toggleEditMode = () => editMode.value = !editMode.value
 
-  draggableElement (event: Event) {
+const draggableElement = (event: DragEvent) => {
     const currentElement = event.target as HTMLElement;
     return currentElement?.hasAttribute('[data-el="draggable"]') ?
         currentElement : currentElement.closest('[data-el="draggable"]')
-  },
+  }
 
-  onDragStart(event: Event) {
-    const elementStart =  this.draggableElement(event);
-    this.draggableElementId = elementStart ? Number(elementStart.id) : -1
-  },
+  const onDragStart = (event: DragEvent) => {
+    const elementStart =  draggableElement(event);
+    draggableElementId.value = elementStart ? Number(elementStart.id) : -1
+  }
 
-   onDrop(event: Event) {
-    event.preventDefault();
-    const source = Number(this.draggableElement(event)?.id)
-    if (source !== this.draggableElementId) {
-      this.swapWidgetDataItems(source, this.draggableElementId)
+  const onDrop = (event: DragEvent) => {
+    const source = Number(draggableElement(event)?.id)
+    if (source !== draggableElementId.value) {
+      swapWidgetDataItems(source, draggableElementId.value)
     }
-  },
-
- swapWidgetDataItems(source: number, destination: number) {
-    [this.widgetData[source], this.widgetData[destination]] = [this.widgetData[destination], this.widgetData[source]]
-  },
-
-  removeWidget(index: number) {
-    this.widgetData.splice(index, 1)
-  },
-
-  addWidget (widget: Widget) {
-    this.widgetData.push(widget);
   }
-  } ,
-  async mounted() {
-      const defaultCity = 'Vorkuta';
-      await getWidgetData(defaultCity, this.addWidget)
+ 
+  const swapWidgetDataItems = (source: number, destination: number) => {
+    [widgetData.value[source], widgetData.value[destination]] = [widgetData.value[destination], widgetData.value[source]]
   }
-})
+
+  const removeWidget = (index: number) => widgetData.value.splice(index, 1)
+  const addWidget = (widget: Widget) =>  widgetData.value.push(widget)
 </script>

@@ -5,24 +5,14 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script lang="ts" setup>
 import WidgetIcon from '@/components/weatherWidget/WidgetIcon.vue';
+import { defineProps, defineEmits } from 'vue'
 
-export default defineComponent({
-  name: "WidgetCardIsEdit",
-  components: {
-    WidgetIcon
-  },
-  props: {
-    city: {
+const emit = defineEmits(['removeWidget'])
+const props = defineProps({
+  city: {
       type: String
     }
-  },
-  methods: {
-    removeWidget(){
-      this.$emit('removeWidget');
-    }
-  }
 })
 </script>

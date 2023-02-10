@@ -8,18 +8,15 @@
   height: 45px;
   background: #eeeeee;
   cursor: move;
-}
-
-.widget-is-edit__delete {
-  margin-left: auto;
-  cursor: pointer;
-}
-
-.widget-is-edit__text {
-  margin-left: 12px;
-}
-
-.widget-is-edit_loading {
-  height: 45px;
-  animation: pulse-bg 1s infinite;
+  &__delete {
+    margin-left: auto;
+    cursor: pointer;
+  }
+  &__text {
+    margin-left: 12px;
+  }
+  &_loading {
+    height: 45px;
+    animation: pulse-bg 1s infinite;
+  }
 }

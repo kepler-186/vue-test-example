@@ -34,20 +34,14 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import Widget from '@/types/widget'
 import WidgetIcon from '@/components/weatherWidget/WidgetIcon.vue'
-import { defineComponent, PropType } from 'vue'
-export default defineComponent({
-  name: "WidgetCard",
-  components: {
-    WidgetIcon
-  },
-  props: {
-    widget: {
+import { defineProps, PropType } from 'vue'
+const props = defineProps({
+  widget: {
       type: Object as PropType<Widget>,
       required: true
     }
-  }
 })
 </script>

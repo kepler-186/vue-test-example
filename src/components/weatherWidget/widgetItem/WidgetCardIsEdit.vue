@@ -15,4 +15,6 @@ const props = defineProps({
       type: String
     }
 })
+
+const removeWidget = () =>  emit('removeWidget')
 </script>

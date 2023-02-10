@@ -10,7 +10,7 @@
   <WidgetError :errorMessage="errMsg" v-if="errMsg"/>
 </template>
 
-<script lang="ts"  setup>
+<script lang="ts" setup>
 import { onErrorCaptured, ref } from 'vue'
 import WidgetContainer from '@/components/weatherWidget/WidgetContainer.vue'
 import WidgetError from '@/components/weatherWidget/WidgetError.vue'

@@ -24,11 +24,6 @@ const editMode = ref(false)
 const draggableElementId = ref(-1)
 const widgetData = ref<Widget[]>([])
 
-onMounted(async() => {
-  const defaultCity = 'Vorkuta';
-  await getWidgetData(defaultCity, addWidget)
-})
-
 const toggleEditMode = () => editMode.value = !editMode.value
 
 const draggableElement = (event: DragEvent) => {
@@ -55,4 +50,6 @@ const draggableElement = (event: DragEvent) => {
 
   const removeWidget = (index: number) => widgetData.value.splice(index, 1)
   const addWidget = (widget: Widget) =>  widgetData.value.push(widget)
+
+  await getWidgetData('Omsk', addWidget)
 </script>

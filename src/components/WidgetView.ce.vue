@@ -16,7 +16,7 @@ import WidgetContainer from '@/components/weatherWidget/WidgetContainer.vue'
 import WidgetError from '@/components/weatherWidget/WidgetError.vue'
 import WidgetCardSkeleton from '@/components/weatherWidget/widgetItem/WidgetCardSkeleton.vue'
 
-let errMsg = ref('')
+const errMsg = ref('')
  onErrorCaptured(e => {
       errMsg.value = `Something went wrong ${e}`;
 })

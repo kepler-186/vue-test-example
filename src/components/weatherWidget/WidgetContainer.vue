@@ -1,18 +1,21 @@
 <template>
   <div class="widgets" @drop.prevent="onDrop" @dragover.prevent @dragenter.prevent @dragstart="onDragStart">
-    <WidgetButton @onClickButton="toggleEditMode" :text="'Edit'" :img="'editIcon'" className="btn-base"/>
-    <div class="widgets__item" v-for="(widget,index) in widgetData" :key="`${ index }_${ new Date().getTime()}`">
-      <WidgetCardIsEdit v-if="editMode" :city="widget.name" :id="index" draggable="true" @removeWidget="removeWidget(index)"/>
-      <WidgetCard v-else :widget="widget"/>
-    </div>
-    <WidgetAddForm v-if="editMode" @addWidgetEvent="addWidget"/>
+    <WidgetButton @on-click-button="toggleEditMode" :text="'Edit'" :img="'editIcon'" className="btn-base"/>
+    <WidgetCard
+        v-for="(widget,index) in widgetData" 
+        :widget="widget" 
+        :key="index"
+        :edit-mode="editMode" 
+        :index="index"
+        @remove-widget-event="removeWidget(index)"
+        />
+    <WidgetAddForm v-if="editMode" @add-widget-event="addWidget"/>
   </div>
 </template>
 
 <script lang="ts" setup>
 import Widget from '@/types/widget'
 import { ref } from 'vue'
-import WidgetCardIsEdit from '@/components/weatherWidget/widgetItem/WidgetCardIsEdit.vue'
 import WidgetCard from '@/components/weatherWidget/widgetItem/WidgetCard.vue'
 import WidgetButton from '@/components/weatherWidget/WidgetButton.vue'
 import WidgetAddForm from '@/components/weatherWidget/WidgetAddForm.vue'

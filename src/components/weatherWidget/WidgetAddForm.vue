@@ -2,7 +2,7 @@
   <div v-if="loading" class="widget-is-edit widget-is-edit_loading"/>
   <form class="form">
     <input class="form__input" type="text" @change="findCity"/>
-    <WidgetButton @onClickButton="addWidget" :text="'Add city'" :img="'addIcon'" :className="'btn-base'"/>
+    <WidgetButton @on-click-button="addWidget" :text="'Add city'" :img="'addIcon'" :className="'btn-base'"/>
   </form>
   <WidgetError :errorMessage="errMsg" v-if="errMsg"/>
 </template>
@@ -36,7 +36,6 @@ const showErrorMessage = (error: string) => {
 }
 
 const addWidget = async() => {
-  console.log('test')
   loading.value = true
   await getWidgetData(city.value, setWidgetData, showErrorMessage)
 }

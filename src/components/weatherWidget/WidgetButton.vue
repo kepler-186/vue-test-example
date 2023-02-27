@@ -1,5 +1,5 @@
 <template>
-    <button @click.prevent="$emit('onClickButton')" :class="props.className">
+    <button type="button" :class="props.className" v-bind="$attrs">
       <WidgetIcon :name="props.img"/><span v-if="props.text" class="btn-base__text">{{props.text}}</span>
     </button>
 </template>

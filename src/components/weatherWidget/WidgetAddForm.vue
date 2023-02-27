@@ -1,8 +1,8 @@
 <template>
   <div v-if="loading" class="widget-is-edit widget-is-edit_loading"/>
   <form class="form">
-    <input class="form__input" type="text" @change="findCity"/>
-    <WidgetButton @on-click-button="addWidget" :text="'Add city'" :img="'addIcon'" :className="'btn-base'"/>
+    <input class="form__input" type="text" @change="findCity" :value="city.value"/>
+    <WidgetButton @click="addWidget" :text="'Add city'" :img="'addIcon'" :className="'btn-base'"/>
   </form>
   <WidgetError :errorMessage="errMsg" v-if="errMsg"/>
 </template>
@@ -28,6 +28,7 @@ const setWidgetData = (widgetData: Widget) => {
   emit('addWidgetEvent', widgetData)
   errMsg.value = ''
   loading.value = false
+  city.value = ''
 }
 
 const showErrorMessage = (error: string) => {

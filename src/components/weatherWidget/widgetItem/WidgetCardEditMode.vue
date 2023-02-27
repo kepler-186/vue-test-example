@@ -1,7 +1,7 @@
 <template>
   <div class="widget-is-edit" data-el="draggable">
     <WidgetIcon :name="'moveIcon'"/><span class="widget-is-edit__text">{{props.city}}</span>
-    <WidgetButton @on-click-button="$emit('removeElement')" :img="'deleteIcon'" className="btn-delete"/>
+    <WidgetButton @click="$emit('removeElement')" :img="'deleteIcon'" className="btn-delete"/>
   </div>
 </template>
 

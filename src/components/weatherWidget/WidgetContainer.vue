@@ -1,6 +1,6 @@
 <template>
   <div class="widgets" @drop.prevent="onDrop" @dragover.prevent @dragenter.prevent @dragstart="onDragStart">
-    <WidgetButton @on-click-button="toggleEditMode" :text="'Edit'" :img="'editIcon'" className="btn-base"/>
+    <WidgetButton @click="toggleEditMode" :text="'Edit'" :img="'editIcon'" className="btn-base"/>
     <WidgetCard
         v-for="(widget,index) in widgetData" 
         :widget="widget" 

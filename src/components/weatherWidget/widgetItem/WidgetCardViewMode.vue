@@ -31,13 +31,13 @@
 </template>
 
 <script lang="ts" setup>
-import Widget from '@/types/widget'
-import WidgetIcon from '@/components/weatherWidget/WidgetIcon.vue'
-import { defineProps, PropType } from 'vue'
-const props = defineProps({
-  widget: {
-      type: Object as PropType<Widget>,
-      required: true
-    }
-})
+  import Widget from '@/types/widget'
+  import WidgetIcon from '@/components/weatherWidget/widgetCommon/WidgetIcon.vue'
+  import { defineProps, PropType } from 'vue'
+  const props = defineProps({
+    widget: {
+        type: Object as PropType<Widget>,
+        required: true
+      }
+  })
 </script>

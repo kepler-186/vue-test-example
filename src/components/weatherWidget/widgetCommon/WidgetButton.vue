@@ -4,11 +4,11 @@
     </button>
 </template>
 <script lang="ts" setup>
-import WidgetIcon from '@/components/weatherWidget/WidgetIcon.vue'
-import { defineProps } from 'vue'
-const props = defineProps({
-  img: { type: String, required: true },
-  text: {type: String},
-  className:  {type: String}
-})
+  import WidgetIcon from './WidgetIcon.vue'
+  import { defineProps } from 'vue'
+  const props = defineProps({
+    img: { type: String, required: true },
+    text: {type: String},
+    className:  {type: String}
+  })
 </script>
